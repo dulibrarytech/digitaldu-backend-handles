@@ -30,7 +30,7 @@ Create "logs" folder in application root
 Create "key" folder in application root
 Create "handle_commands" folder in application root
 Place handle client (Client Library (ver. 9.3.1) — Java™ Version) in application root (https://handle.net/client_download.html)
-Fill in value in .env file
+Fill in values in .env file
 sh start_prod.sh
 ```
 
