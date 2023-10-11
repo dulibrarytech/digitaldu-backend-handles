@@ -80,7 +80,10 @@ def create_handle():
 
     result = handles_lib.create_handle(uuid)
 
-    return json.dumps(result), 200
+    if result is False:
+        return json.dumps(dict(message='Unable to create handle')), 200
+
+    return json.dumps(dict(message='Handle created')), 201
 
 
 @app.route(prefix + version + endpoint, methods=['PUT'])
@@ -108,7 +111,10 @@ def update_handle():
 
     result = handles_lib.update_handle(uuid, new_handle_target)
 
-    return json.dumps(result), 200
+    if result is False:
+        return json.dumps(dict(message='Unable to update handle')), 200
+
+    return json.dumps(dict(message='Handle updated')), 201
 
 
 @app.route(prefix + version + endpoint, methods=['DELETE'])
@@ -134,7 +140,10 @@ def delete_handle():
 
     result = handles_lib.delete_handle(uuid)
 
-    return json.dumps(result), 200
+    if result is False:
+        return json.dumps(dict(message='Unable to delete4 handle')), 200
+
+    return json.dumps(dict(message='Handle deleted')), 204
 
 
 app.debug = True

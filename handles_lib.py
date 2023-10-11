@@ -67,13 +67,21 @@ def create_handle(uuid):
     log_file = create_log_file('create', uuid)
 
     if command_file is False or log_file is False:
-        print('Unable to create supporting file')
         return False
 
     command = handle_commands_path + command_file
     log = handle_log_path + log_file
-    execute_command(command, log)
+
+    if log is False:
+        return False
+
+    result = execute_command(command, log)
+
+    if result is False:
+        return False
+
     delete_command_file(command_file)
+    return True
 
 
 def update_handle(uuid, new_handle_target):
@@ -94,13 +102,21 @@ def update_handle(uuid, new_handle_target):
     log_file = create_log_file('update', uuid)
 
     if command_file is False or log_file is False:
-        print('Unable to create supporting file')
         return False
 
     command = handle_commands_path + command_file
     log = handle_log_path + log_file
-    execute_command(command, log)
+
+    if log is False:
+        return False
+
+    result = execute_command(command, log)
+
+    if result is False:
+        return False
+
     delete_command_file(command_file)
+    return True
 
 
 def delete_handle(uuid):
@@ -119,13 +135,21 @@ def delete_handle(uuid):
     log_file = create_log_file('delete', uuid)
 
     if command_file is False or log_file is False:
-        print('Unable to create supporting file')
         return False
 
     command = handle_commands_path + command_file
     log = handle_log_path + log_file
-    execute_command(command, log)
+
+    if log is False:
+        return False
+
+    result = execute_command(command, log)
+
+    if result is False:
+        return False
+
     delete_command_file(command_file)
+    return True
 
 
 def execute_command(command, log):
@@ -177,6 +201,7 @@ def create_log_file(action, uuid):
     except Exception as e:
         print(e)
         print('ERROR: Unable to create handle log file')
+        return False
 
 
 def delete_command_file(command_file):
