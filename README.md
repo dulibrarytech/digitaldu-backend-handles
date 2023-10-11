@@ -26,6 +26,7 @@ All other content is released under [CC-BY-4.0](https://creativecommons.org/lice
 ### Local Environment Setup
 
 ```
+Have Python >=3.5
 Create "logs" folder in application root
 Create "key" folder in application root
 Create "handle_commands" folder in application root

@@ -64,7 +64,7 @@ def create_handle(uuid):
     command += '\n'
 
     command_file = create_command_file('create', command)
-    log_file = create_log_file('create', '', uuid)
+    log_file = create_log_file('create', uuid)
 
     if command_file is False or log_file is False:
         print('Unable to create supporting file')
@@ -91,7 +91,7 @@ def update_handle(uuid, new_handle_target):
     command += '\n'
 
     command_file = create_command_file('update', command)
-    log_file = create_log_file('update', '', uuid)
+    log_file = create_log_file('update', uuid)
 
     if command_file is False or log_file is False:
         print('Unable to create supporting file')
@@ -116,7 +116,7 @@ def delete_handle(uuid):
     command += '\n'
 
     command_file = create_command_file('delete', command)
-    log_file = create_log_file('delete', '', uuid)
+    log_file = create_log_file('delete', uuid)
 
     if command_file is False or log_file is False:
         print('Unable to create supporting file')
